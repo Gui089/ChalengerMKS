@@ -15,7 +15,7 @@ export const ProductContainer = styled.ul`
 
 export const ItemLi = styled.li`
     width:218px;
-    height:285px;
+    height:270px;
     background:white;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@ export const TitleItem = styled.p`
     display: flex;
     align-self: center;
     justify-self: center;
-    width: 100px;
+    width: 120px;
     margin-right: 10px;
 `;
 
@@ -56,7 +56,8 @@ export const DescriptionItem = styled.p`
     font-size: 10px;
     font-weight: 300;
     font-family: sans-serif;
-    width: 170px;
+    width: 190px;
     color: #2C2C2C;
     margin-top: 8px;
+    margin-bottom: 0px;
 `;

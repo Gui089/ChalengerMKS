@@ -1,25 +1,32 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { Cart, Container, Logo, NavBar, SubTitleLogo, TitleLogo } from "./css/HomePage"
 import { Product } from "../../Components/Product/Product";
+import { CartSideBar } from "../../Components/Cart/Cart.Sidebar";
 
 
 export const HomePage = () => {
-
+    
     const [quantityCart, setQuantityCart] = useState<number>(0);
+    const [openCart, setOpenCat] = useState<boolean>(false);
 
+    const showCart = () => {
+        setOpenCat(prev => !prev);
+    }
+    
     const addToCart = () => {
         setQuantityCart(prev => prev + 1);
     }
 
+
     return (
-        <Container>
+        <Container >
             <NavBar>
                 <Logo>
                     <TitleLogo>MKS</TitleLogo>
                     <SubTitleLogo>Sistemas</SubTitleLogo>
                 </Logo>
 
-                <Cart onClick={addToCart}>
+                <Cart onClick={showCart}>
                     <img
                         width={19} 
                         height={18} 
@@ -33,6 +40,8 @@ export const HomePage = () => {
                         >{quantityCart}</h1>
                 </Cart>
             </NavBar>
+
+            {openCart && <CartSideBar open={openCart} />}
 
             <Product />
         </Container>

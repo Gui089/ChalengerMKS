@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ProductTypes } from '../../domain/Product/ProductTypes';
 import { ProductApi } from '../../domain/Product/ProductApi';
 import { DescriptionItem, ItemLi, PriceProduct, ProductContainer, TitleItem } from './css/Product';
+import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
 
 export const Product = () => {
     const { isLoading, error, data } = ProductApi.useGetListProducts();
@@ -41,6 +42,7 @@ export const Product = () => {
                         </div>
 
                         <DescriptionItem>{item.description}</DescriptionItem>
+                        <ButtonBuy />
                     </ItemLi>
                 )}
             </ProductContainer>
