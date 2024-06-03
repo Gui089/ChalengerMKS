@@ -9,8 +9,10 @@ interface CartProps {
     toggleCart: () => void;
 }
 
+type ProductWithQuantity = Pick<ProductTypes, 'name' | 'price' | 'photo'> & { quantity: number };
+
 export const CartSideBar = ({ data, toggleCart }: CartProps) => {
-    const [productCart, setProductCart] = useState([]);
+    const [productCart, setProductCart] = useState<ProductWithQuantity[]>([]);
 
     useEffect(() => {
         const productQuantities = data.reduce((acc, item) => {
@@ -19,7 +21,7 @@ export const CartSideBar = ({ data, toggleCart }: CartProps) => {
             }
             acc[item.name].quantity += 1;
             return acc;
-        }, {} as { [key: string]: Pick<ProductTypes, 'name' | 'price' | 'photo'> & { quantity: number } });
+        }, {} as { [key: string]: ProductWithQuantity });
 
         const arrayProductCart = Object.values(productQuantities);
         setProductCart(arrayProductCart);
