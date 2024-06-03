@@ -16,7 +16,7 @@ export const HomePage = () => {
         setOpenCart(prev => !prev);
     }
 
-    const addToCart = (e) => {
+    const addToCart = (e: React.MouseEvent<HTMLDivElement>) => {
         setQuantityCart(prev => prev + 1);
         const productId = e.currentTarget.getAttribute('data-product-id');
         const productToAdd = product.find((item) => item.id === Number(productId));
